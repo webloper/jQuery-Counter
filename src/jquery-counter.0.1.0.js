@@ -34,6 +34,8 @@
 
 			el.innerHTML = localStorage.getItem( id );
 
+			$el.next().text( maxLen - el.innerHTML.length );
+
 			$el.bind('keydown keyup', function(event){
 
 				var curVal = this.innerHTML;
