@@ -21,16 +21,97 @@
 		
 	    var id,	    	
 	    	maxLen 			= 	options.limit,
-	    	containerClass 	=	options.containerClass,
-	    	counter,
-	    	parent;
-		
+	    	counterClass 	=	options.counterClass,
+	    	limitElement	=	options.limitElement,
+	    	limitClass		=	options.limitClass,
+			format			=	options.format;
+
+		function doContentEditable()	{
+			$el.attr( 'contenteditable', true );
+			$el.attr( 'data-state', 'normal' );
+			
+			$el.addClass( counterClass );
+
+			el.innerHTML = localStorage.getItem( id );
+
+			$el.bind('keydown keyup', function(event){
+
+				var curVal = this.innerHTML;
+				var curLen = curVal.length;
+				var storeVal = curVal;
+
+				var tmpVal = curVal.replace(/&nbsp;/g, ' ');
+				var tmpLen = tmpVal.length;
+
+				var safeVal = tmpVal.substring(0, maxLen);
+				var unsafeVal = tmpVal.substring(maxLen, tmpLen);
+				
+
+				if( event.type === 'keyup' )	{
+					$el.next().text( format.replace(/%1/, (maxLen - tmpLen)));
+				}
+				
+				//if( $el.next(limitClass).length )	{
+					//$el.next(limitClass).text = (maxLen - tmpLen);
+				//}
+
+				if( curLen <= maxLen )	{
+					this.setAttribute('data-state', 'normal');
+				}
+
+				if( unsafeVal.length && this.getAttribute('data-state') == 'normal' )	{
+					
+					this.setAttribute('data-state', 'error');
+
+					localStorage.setItem( id , safeVal + "<em>" + unsafeVal + '</em>');
+					
+					this.innerHTML = localStorage.getItem( id );
+
+					this.focus();
+					if(typeof window.getSelection != "undefined" &&
+						typeof document.createRange != "undefined")	{
+						var range = document.createRange();
+						range.selectNodeContents(this);
+						range.collapse(false);
+						var sel = window.getSelection();
+						sel.removeAllRanges();
+						sel.addRange(range);
+					} else if( typeof document.body.createTextRange != "undefined" )	{
+						var textRange = document.body.createTextRange();
+						textRange.moveToElementtext(this);
+						textRange.collapse(false);
+						textRange.seect();
+					}
+				} else {
+					localStorage.setItem( id , this.innerHTML);	
+				}		
+				
+			});
+			
+			return this;
+		}
+
 		function init() {
 			
 			if( undefined === $el.attr('id') )	{
 				alert('ID needed');
 			}
 			
+			id = $el.attr('id');
+
+			if( limitElement )	{
+				$('<'+limitElement+'>', {
+					class: limitClass,
+					text: format.replace(/%1/, (maxLen))
+				}).insertAfter($(el));				
+			}
+
+			if( $el.is('input') === false && $el.is('textarea') === false )	{
+				doContentEditable();
+			}
+
+			
+
 			hook('onInit');
 		}
 
@@ -98,7 +179,10 @@
 		
 		// properties
 		limit: 			140,
-
+		counterClass:   'counter',
+		limitElement: 	'span',
+		limitClass: 	'limit',
+		format: 		'%1',
 		// callbacks
 		onInit: 		function() {},
 		onDestroy: 		function() {},
