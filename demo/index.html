@@ -44,9 +44,14 @@
 			color: #8899a6;
 		}
 
-		.counter .warning {
+		.warning {
 			color: #5c0002;
 		}
+
+		.exceeded {
+			color: #d40d12;
+		}
+
 	</style>
 </head>
 <body>
@@ -59,12 +64,10 @@
 	<script>
 		$(document).ready(function(){
 			
-			$('.tweet-global').counter({
-				limit: 10
-			});
+			$('.tweet-global').counter();
 
 			$('#tweet-template').counter({
-				limit: 15
+				limit: 30
 			});
 
 			/*$('#input').counter();

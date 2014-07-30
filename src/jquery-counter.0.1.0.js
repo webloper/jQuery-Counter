@@ -21,9 +21,12 @@
 		
 	    var id,	    	
 	    	maxLen 			= 	options.limit,
+	    	limitWarning	=	options.limitWarning,
 	    	counterClass 	=	options.counterClass,
 	    	limitElement	=	options.limitElement,
 	    	limitClass		=	options.limitClass,
+	    	warningClass	=	options.warningClass,
+	    	exceededClass 	=	options.exceededClass,
 			format			=	options.format;
 
 		function doContentEditable()	{
@@ -53,9 +56,9 @@
 					$el.next().text( format.replace(/%1/, (maxLen - tmpLen)));
 				}
 				
-				//if( $el.next(limitClass).length )	{
-					//$el.next(limitClass).text = (maxLen - tmpLen);
-				//}
+				if( curLen >= ( maxLen - limitWarning ) )	{
+					$el.next().addClass(warningClass);	
+				}
 
 				if( curLen <= maxLen )	{
 					this.setAttribute('data-state', 'normal');
@@ -63,6 +66,12 @@
 
 				if( unsafeVal.length && this.getAttribute('data-state') == 'normal' )	{
 					
+					if( $el.next().hasClass( warningClass ) )	{
+						$el.next().removeClass(warningClass);	
+						$el.next().addClass(exceededClass);
+					}
+					
+
 					this.setAttribute('data-state', 'error');
 
 					localStorage.setItem( id , safeVal + "<em>" + unsafeVal + '</em>');
@@ -181,9 +190,12 @@
 		
 		// properties
 		limit: 			140,
-		counterClass:   'counter',
+		limitWarning: 	25,
 		limitElement: 	'span',
-		limitClass: 	'limit',
+		counterClass:   'counter',		
+		limitClass: 	'limit',		
+		warningClass: 	'warning',
+		exceededClass: 	'exceeded',
 		format: 		'%1',
 		// callbacks
 		onInit: 		function() {},
