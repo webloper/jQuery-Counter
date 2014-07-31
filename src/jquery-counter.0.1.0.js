@@ -1,9 +1,9 @@
 /*!
  * jQuery Counter v0.1.0
- * [DESCRIPTION]
+ * A jQuery character counter like Twitter
  * [http://PLUGIN-URL]
  *
- * Copyright (c) 2014 Ravi Kumar [AUTHOR URL]
+ * Copyright (c) 2014 Ravi Kumar
  * Released under the MIT license
  * http://www.opensource.org/licenses/mit-license.php
  * 
