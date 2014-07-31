@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Jquery Counter by ravikumar8</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Jquery Counter</h1>
+        <h2>A jQuery plugin which provide character counter similar to Twitter.</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/ravikumar8/jQuery-Counter/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/ravikumar8/jQuery-Counter/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/ravikumar8/jQuery-Counter" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="jquery-counter-v010" class="anchor" href="#jquery-counter-v010"><span class="octicon octicon-link"></span></a>jQuery Counter v0.1.0</h1>
+
+<p>A jQuery plugin which provide character counter similar to Twitter.<br>
+Used jQuery plugin boilerplate from <a href="http://jonathannicol.com/blog/2012/05/06/a-jquery-plugin-boilerplate/">JONATHAN NICOL</a> :) Thanks!</p>
+
+<p><img src="https://raw.githubusercontent.com/ravikumar8/jQuery-Counter/master/demo/screenshot.png" alt="jQuery Counter"></p>
+
+<h3>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<p><strong>html</strong>    </p>
+
+<pre><code>&lt;div id="tweet-template"&gt;&lt;/div&gt;
+</code></pre>
+
+<p><strong>jQuery</strong>   </p>
+
+<pre><code>$('.tweet').counter();
+</code></pre>
+
+<p>Options</p>
+
+<pre><code>
+$('#tweet-template').counter({
+    limit:          140,
+    limitWarning:   25,
+    limitElement:   'span',
+    counterClass:   'counter',      
+    limitClass:     'limit',        
+    warningClass:   'warning',
+    exceededClass:  'exceeded',
+    format:         '%1'
+});
+
+</code></pre>
+
+<ul>
+<li>
+<strong>limit</strong>: Maximum character count. <em>Default 140</em>
+</li>
+<li>
+<strong>limitWarning</strong>: Number indicate where warning limit is on. <em>Default 25</em>
+</li>
+<li>
+<strong>limitElement</strong>: Inline HTML element to show the left numbers of characters. <em>Default span</em>
+</li>
+<li>
+<strong>counterClass</strong>: Class to decorate counter element . <em>Default counter</em>
+</li>
+<li>
+<strong>limitClass</strong>: Class to decorate limit element. <em>Default limit</em>
+</li>
+<li>
+<strong>warningClass</strong>: Class to decorate limit element in case of warning. <em>Default warning</em>
+</li>
+<li>
+<strong>exceededClass</strong>: Class to decorate limit element in case of exceed of characters. <em>Default exceeded</em>
+</li>
+<li>
+<strong>format</strong>: Format the output to show the rest of the characters. <em>Default %1</em>
+</li>
+</ul><h3>
+<a name="to-do" class="anchor" href="#to-do"><span class="octicon octicon-link"></span></a>To-do</h3>
+
+<ul>
+<li>input text and textarea support</li>
+<li>word count</li>
+<li>Callback Support</li>
+<li>Bug fixes if any</li>
+<li>JSLinting &amp; Testing</li>
+</ul><h3>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+
+<p>Released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a>license<br>
+Copyright (c) 2014 Ravi Kumar</p>
+      </section>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-53417316-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
