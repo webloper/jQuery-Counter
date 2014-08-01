@@ -6,6 +6,11 @@ Used jQuery plugin boilerplate from [JONATHAN NICOL](http://jonathannicol.com/bl
 ![jQuery Counter](demo/screenshot.png)
 
 
+### Installation
+Include script after the jQuery library
+
+    <script src="/path/jquery-counter.min.js"></script>
+
 ### Usage
 
 __html__    
@@ -16,7 +21,7 @@ __jQuery__
     
     $('.tweet').counter();
 
-Options
+### Options
 
 ~~~
 
@@ -54,5 +59,5 @@ $('#tweet-template').counter({
 
 ### License ###
 
-Released under the [MIT](http://www.opensource.org/licenses/mit-license.php)license<br>
+Released under the [MIT](http://www.opensource.org/licenses/mit-license.php) license<br>
 Copyright (c) 2014 Ravi Kumar

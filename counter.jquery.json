@@ -1,23 +1,18 @@
 {
-  "name": "counter",
-  "title": "jQuery Counter",
+  "name": "charcounter",
+  "title": "jQuery char counter",
   "description": "A jQuery plugin which provide character counter similar to Twitter.",
   "keywords": [
     "jquery",
     "counter",
-    "twitter"
+    "twitter",
+    "char"
   ],
-  "version": "0.1.4",
+  "version": "0.1.0",
   "author": {
     "name": "Ravi Kumar",
     "url": "https://github.com/ravikumar8"
   },
-  "maintainers": [
-    {
-      "name": "Ravi Kumar",
-      "url": "https://github.com/ravikumar8"
-    }
-  ],
   "licenses": [
     {
       "type": "MIT",
@@ -29,6 +24,6 @@
   "docs": "https://github.com/ravikumar8/jQuery-Counter#readme",
   "download": "https://github.com/ravikumar8/jQuery-Counter/archive/master.zip",
   "dependencies": {
-    "jquery": ">=1.4"
+    "jquery": ">=1.5"
   }
 }
