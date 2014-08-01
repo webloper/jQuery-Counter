@@ -19,7 +19,7 @@ __html__
 
 __jQuery__   
     
-    $('.tweet').counter();
+    $('#tweet-template').counter();
 
 ### Options
 
